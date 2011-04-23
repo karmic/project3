@@ -1,4 +1,4 @@
-<h1>Choose a Suggestion to Rate</h1>
-<%= button_to "Catherine's Suggestion", :controller => "suggest_rates", :action => "suggest" %><br /> <br />
+<h1>Choose a Survey to Rate</h1>
+<%= button_to "Survey 1", :controller => "suggest_rates", :action => "suggest" %><br /> <br />
 
 <%= link_to "Main Menu", :controller => "pages", :action => "continue" %>

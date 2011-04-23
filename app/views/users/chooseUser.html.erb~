@@ -2,7 +2,7 @@
 <% if cookies.signed[:user_id] == 1 %>
 	<%= form_for :id, :url => {:action => "edit"} do |f| %>
 		<%= f.collection_select @user, @users, :id, :name,
-			options = {:prompt => "Choose a user"}, :class => "user" %> <br /> <br />
+			options = {:prompt => "Choose a user"}, :class => "user" %> <br />
 		<%= f.submit "Submit" %>
 	<% end %>
 <% end %>

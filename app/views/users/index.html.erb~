@@ -3,15 +3,11 @@
 		<tr>
 			<th> Name </th>
 			<th> Username </th>
-			<th> Division </th>
-			<th> Department </th>
 		</tr>
 	<% @users.each do |u| %>
 		<tr>
 			<td> <%= u.name %> </td>
 			<td> <%= u.username %> </td>
-			<td> <%= u.division %> </td>
-			<td> <%= u.department %> </td>
 		</tr>
 	<% end %>
 </table>
@@ -20,5 +16,5 @@
 	<%= link_to "Edit User", :controller => "users", :action => "chooseUser" %>
 	<%= link_to "View Suggestions", :controller => "user_suggestions", :action => "index" %>
 	<br /> <br />
-	<%= link_to "Exit", :controller => "pages", :action => "destroy" %>
+	<%= link_to "Main Menu", :controller => "pages", :action => "continue" %>
 <% end %>
