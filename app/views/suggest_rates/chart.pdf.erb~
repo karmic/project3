@@ -1,6 +1,4 @@
 <h1>Results of Survey</h1>
 <br />
-<%= image_tag @result_suggest1, :alt => 'result1_chart' %>
-<%= image_tag @result_suggest2, :alt => 'result2_chart' %><br /> <br /> <br /> <br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-<%= image_tag @result_suggest3, :alt => 'result3_chart' %>
+<%= image_tag @result_suggest1, :alt => 'result1_chart' %> <br /> <br />
+<%= image_tag @result_suggest2, :alt => 'result2_chart' %>

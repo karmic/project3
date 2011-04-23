@@ -48,10 +48,11 @@ insert into users_view (name,username,password)
 	values ('John Doe','John','doe');
 
 --load suggests
-insert into suggests (id, suggest)
-	values ('1','Suggestion 1');
-insert into suggests (id, suggest)
-	values ('2','Suggestion 2');
-insert into suggests (id, suggest)
-	values ('3','Suggestion 3');
+insert into suggests(id,survey_id,suggest)
+	values ('1','1','Suggestion 1');
+insert into suggests(id,survey_id,suggest)
+	values ('2','1','Suggestion 2');
 
+--load surveys
+insert into surveys (id,survey)
+	values ('1','Survey 1');

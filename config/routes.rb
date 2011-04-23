@@ -1,5 +1,8 @@
 Project3::Application.routes.draw do
 
+  get "survey_suggests/index"
+	match "survey_suggests/chooseSurvey" => "survey_suggests#chooseSurvey"
+
   match "suggest_rates/index" => "suggest_rates#index"
 	match "suggest_rates/suggest" => "suggest_rates#suggest"
 	match "suggest_rates/create" => "suggest_rates#create"

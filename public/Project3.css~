@@ -3,7 +3,7 @@
 
 /** Example rules used by the template application (remove for your app) */
 h1 {
-	background-color:#b0c4de;
+	body {background-color:#b0c4de;} 
 	font-family: Georgia;
   font-size: 2em;
   font-weight: bold;

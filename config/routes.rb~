@@ -1,9 +1,11 @@
 Project3::Application.routes.draw do
 
-  match "suggest_rates/index"
-	match "suggest_rates/suggest"
+  get "survey_suggests/index"
+
+  match "suggest_rates/index" => "suggest_rates#index"
+	match "suggest_rates/suggest" => "suggest_rates#suggest"
 	match "suggest_rates/create" => "suggest_rates#create"
-	match "suggest_rates/chart"
+	match "suggest_rates/chart" => "suggest_rates#chart"
 
 	match "pages/login", :via => [:get,:post]
 	match "pages/loginstatus" => "pages#loginstatus"

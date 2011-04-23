@@ -1,0 +1,10 @@
+class SurveySuggestsController < ApplicationController
+  def index
+  end
+
+	def chooseSurvey
+		@survey = Survey.find(session[:id]).survey
+		@surveys = Survey.all
+	end
+
+end

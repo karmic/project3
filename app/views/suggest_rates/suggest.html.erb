@@ -1,5 +1,6 @@
-<h1>Please Rate Survey</h1>
-
+<% @surveys.each do |ab| %>
+<h1>Please Rate <%= ab.survey %></h1>
+<% end %>
 <%= form_for :suggest_rate, :url => {:action => "create"} do |f| %>
     <%= @suggests.first['suggest'] %><br />
       <%= f.radio_button :rate1, "great1" %><%= f.label :rate, "Great" %>
@@ -12,13 +13,6 @@
       <%= f.radio_button :rate2, "neutral2" %><%= f.label :rate, "Neutral" %>
       <%= f.radio_button :rate2, "bad2" %><%= f.label :rate, "Bad" %>
       <%= hidden_field 'suggestid', @suggests.second['id'] %><br /> <br />
-
-		<%= @suggests.third['suggest'] %><br />
-      <%= f.radio_button :rate3, "great3" %><%= f.label :rate, "Great" %>
-      <%= f.radio_button :rate3, "neutral3" %><%= f.label :rate, "Neutral" %>
-      <%= f.radio_button :rate3, "bad3" %><%= f.label :rate, "Bad" %>
-      <%= hidden_field 'suggestid', @suggests.third['id'] %><br /> <br />
-    
+		
     <%= f.submit "Submit" %><br /> <br />
 <% end %>
-<%= link_to "Main Menu", :controller => "pages", :action => "continue" %>

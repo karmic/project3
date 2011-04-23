@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def index
-		@users = User.find(:all, :order => 'name')
+		@users = User.find(:all, :order => 'username')
   end
 
 	def chooseUser

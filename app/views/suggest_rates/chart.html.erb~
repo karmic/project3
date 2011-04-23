@@ -1,10 +1,10 @@
-<h1>Survey Results</h1>
+
+<h1> Survey Results</h1> <br /> <br />
 
 <%= image_tag @result_suggest1, :alt => 'result1_chart' %>
 <%= image_tag @result_suggest2, :alt => 'result2_chart' %><br /> <br /> <br /> <br />
-<%= image_tag @result_suggest3, :alt => 'result3_chart' %><br /> <br />
 
-<%= link_to "Main Menu", :controller => "pages", :action => "continue" %><br />
+<%= link_to "Main Menu", :controller => "pages", :action => "continue" %>
 <a target="_blank"
 href="http://localhost:3000/suggest_rates/chart.pdf">
 PDF Results

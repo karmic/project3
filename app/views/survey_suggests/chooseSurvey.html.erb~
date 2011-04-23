@@ -1,0 +1,9 @@
+<h2> Choose a Survey</h2>
+	<%= form_for :id, :url => {:controller => "suggest_rates", :action => 	
+	"suggest"} do |f| %>
+		<%= f.collection_select @survey, @surveys, :id, :survey,
+			options = {:prompt => "Choose a survey"}, :class => "survey_suggest" %> <br /> 
+<br />
+		<%= f.submit "Submit" %>
+	<% end %>
+<% end %>
