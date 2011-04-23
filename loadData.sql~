@@ -38,7 +38,7 @@ insert into suggestions(id,user_id,suggestion,created_at,updated_at)
 	values ('10','7','Steve''s suggestion 1','2011-04-19 21:24:56 UTC','2011-04-19 21:24:56 UTC');
 
 --load surveys
-insert into suggests (id, suggest)
+insert into suggests (id, suggests)
 	values ('1','Catherine''s Suggestion 1');
-insert into suggests (id, suggest)
+insert into suggests (id, suggests)
 	values ('2','Catherine''s Suggestion 2');

@@ -1,0 +1,2 @@
+module SuggestRatesHelper
+end

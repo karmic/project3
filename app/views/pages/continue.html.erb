@@ -2,16 +2,16 @@
 <% if cookies.signed[:user_id] == 1 %>
 	<%= link_to "View Users", :controller => "users", :action => "index" %> <br />
 	<%= link_to "View Suggestions", :controller => "user_suggestions", :action => "index" %> <br />
-<%= link_to "Rate A Suggestion", :controller => "survey_rates", :action => "index" %> <br />
-<%= link_to "View Rated Suggestion Results", :controller => "survey_rates", :action => "chart" %> <br /> <br />
+<%= link_to "Rate A Suggestion", :controller => "suggest_rates", :action => "index" %> <br />
+<%= link_to "View Rated Suggestion Results", :controller => "suggest_rates", :action => "chart" %> <br /> <br />
 	<%= link_to "Exit", :controller => "pages", :action => "destroy" %>
 <% elsif cookies.signed[:user_id] == -1 %>
-<%= link_to "Rate A Suggestion", :controller => "survey_rates", :action => "index" %> <br />
-<%= link_to "View Rated Suggestion Results", :controller => "survey_rates", :action => "chart" %> <br /> <br />
+<%= link_to "Rate A Suggestion", :controller => "suggest_rates", :action => "index" %> <br />
+<%= link_to "View Rated Suggestion Results", :controller => "suggest_rates", :action => "chart" %> <br /> <br />
 <%= link_to "Exit", :controller => "pages", :action => "destroy" %>
 <% else %>
 	<%= link_to "View Suggestions", :controller => "user_suggestions", :action => "index" %> <br />
-<%= link_to "Rate A Suggestion", :controller => "survey_rates", :action => "index" %> <br />
-<%= link_to "View Rated Suggestion Results", :controller => "survey_rates", :action => "chart" %> <br /> <br />
+<%= link_to "Rate A Suggestion", :controller => "suggest_rates", :action => "index" %> <br />
+<%= link_to "View Rated Suggestion Results", :controller => "suggest_rates", :action => "chart" %> <br /> <br />
 	<%= link_to "Exit", :controller => "pages", :action => "destroy" %>
 <% end %>

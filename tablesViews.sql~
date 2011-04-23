@@ -33,7 +33,7 @@ create table suggestions(
 drop table if exists suggests cascade;
 create table suggests(
 	id integer not null primary key default nextval('suggest_id_seq'),
-	suggest text
+	suggests text
 );
 drop table if exists rates cascade;
 create table rates(
