@@ -1,0 +1,4 @@
+<h1>Choose a Suggestion to Rate</h1>
+<%= button_to "Rate Suggestions", :controller => "survey_rates", :action => "survey" %><br /> <br />
+
+<%= link_to "Main Menu", :controller => "pages", :action => "continue" %>

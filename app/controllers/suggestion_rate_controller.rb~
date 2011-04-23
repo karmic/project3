@@ -1,0 +1,24 @@
+class SuggestionRateController < ApplicationController
+  def index
+  end
+
+	def chooseSuggestiontoRate
+  	user = User.find(cookies.signed[:user_id])
+		if user['department'] == user['division']
+			@usersuggestions = UserSuggestion.find_all_by_division(user['division'])
+		else
+			@usersuggestions = UserSuggestion.find_all_by_department(user['department'])
+		end
+		if user['division'] == "Administrator" and user['department'] == "Administrator"
+			@usersuggestions = UserSuggestion.all
+		end
+	end
+
+	def rate
+id = params[:id]
+    userid = cookies.signed[:user_id]
+    conn = ActiveRecord::Base.connection
+    ratesid = conn.select_value("select id from rates where rate = " + id.first.to_s + "").to_i
+    @rates = SuggestionRate.find_by_rate(id)
+  end
+end

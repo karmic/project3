@@ -1,0 +1,2 @@
+module SurveyRatesHelper
+end

@@ -1,0 +1,28 @@
+<h2> Suggestions </h2>
+<table border="1">
+		<tr>
+			<th> Name </th>
+			<th> Division </th>
+			<th> Department </th>
+			<th> Suggestion </th>
+			<th> Created </th>
+			<th> Updated </th>
+		</tr>
+	<% @usersuggestions.each do |ab| %>
+		<tr>
+			<td> <%= ab.name %> </td>
+			<td> <%= ab.division %> </td>
+			<td> <%= ab.department %> </td>
+			<td> <%= ab.suggestion %> </td>
+			<td> <%= ab.created_at %> </td>
+			<td> <%= ab.updated_at %> </td>
+		</tr>
+	<% end %>
+</table>
+<% if cookies.signed[:authenticated] %>
+	<%= link_to "Add New Suggestion", :controller => "user_suggestions", :action => "new" %>
+	<%= link_to "Edit Suggestion", :controller => "user_suggestions", :action => "chooseSuggestion" %> 
+<% end %>
+<br /> <br />
+	<%= link_to "Main Menu", :controller => "pages", :action => "continue" %>
+
