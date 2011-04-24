@@ -5,12 +5,15 @@
 	<%= link_to "Take a Survey", :controller => "survey_suggests", :action => "chooseSurvey" %> <br />
 	<%= link_to "View Survey Results", :controller => "suggest_rates", :action => "chart" %> <br /> <br />
 	<%= link_to "Exit", :controller => "pages", :action => "destroy" %>
+
 <% elsif cookies.signed[:user_id] == -1 %>
 	<%= link_to "Take a Survey", :controller => "survey_suggests", :action => "chooseSurvey" %> <br />
 	<%= link_to "View Survey Results", :controller => "suggest_rates", :action => "chart" %> <br /> <br />
 	<%= link_to "Exit", :controller => "pages", :action => "destroy" %>
+
 <% else %>
 	<%= link_to "Take Survey", :controller => "survey_suggests", :action => "chooseSurvey" %> <br />
 	<%= link_to "View Survey Results", :controller => "suggest_rates", :action => "chart" %> <br /> <br />
 	<%= link_to "Exit", :controller => "pages", :action => "destroy" %>
+
 <% end %>

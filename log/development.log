@@ -27033,6 +27033,7 @@ Started GET "/pages/login" for 127.0.0.1 at 2011-04-22 22:23:14 -1000
   [1m[36mSQL (0.8ms)[0m  [1mselect get_id('','')[0m
 Rendered pages/login.html.erb within layouts/application (11.9ms)
 Completed 200 OK in 30ms (Views: 27.1ms | ActiveRecord: 0.8ms)
+<<<<<<< Updated upstream
   [1m[36mSQL (0.6ms)[0m  [1mSHOW client_min_messages[0m
   [1m[35mSQL (0.4ms)[0m  SET client_min_messages TO 'panic'
   [1m[36mSQL (0.3ms)[0m  [1mSET standard_conforming_strings = on[0m
@@ -32568,18 +32569,56 @@ Completed 302 Found in 7ms
 Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 21:22:15 -1000
   Processing by PagesController#continue as HTML
   [1m[35mSQL (4.2ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 13:28:10 -1000
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW client_min_messages[0m
+  [1m[35mSQL (0.3ms)[0m  SET client_min_messages TO 'panic'
+  [1m[36mSQL (0.2ms)[0m  [1mSET standard_conforming_strings = on[0m
+  [1m[35mSQL (0.2ms)[0m  SET client_min_messages TO 'notice'
+  [1m[36mSQL (1.1ms)[0m  [1mSET time zone 'UTC'[0m
+  [1m[35mSQL (0.7ms)[0m  SHOW TIME ZONE
+  Processing by PagesController#login as HTML
+  [1m[36mSQL (5.2ms)[0m  [1mselect get_id('','')[0m
+Rendered pages/login.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 32ms (Views: 25.4ms | ActiveRecord: 8.1ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 13:28:57 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bf5xxtJHWtj87BtYYcqAI8e6Qp5J289/A6RB8Y9WirA=", "user"=>{"username"=>"Alan", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mSQL (3.0ms)[0m  select get_id('Alan','password')
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 6ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 13:28:57 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (4.4ms)[0m  [1m SELECT tablename
+ FROM pg_tables
+ WHERE schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35mSQL (4.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
   [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
   [1m[35mSQL (2.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 Rendered pages/continue.html.erb within layouts/application (14.9ms)
 Completed 200 OK in 167ms (Views: 39.8ms | ActiveRecord: 7.7ms)
 
@@ -32673,18 +32712,80 @@ Completed 200 OK in 155ms (Views: 118.5ms | ActiveRecord: 4.3ms)
 Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 21:25:04 -1000
   Processing by PagesController#continue as HTML
   [1m[35mSQL (4.2ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+Rendered pages/continue.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 290ms (Views: 20.6ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/suggest_rates/chart" for 127.0.0.1 at 2011-04-23 13:29:06 -1000
+  Processing by SuggestRatesController#chart as HTML
+  [1m[36mSQL (1.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggest_rate_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (2.5ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')[0m
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')[0m
+  [1m[35mSQL (1.5ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')
+  [1m[36mSQL (1.3ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')[0m
+Rendered suggest_rates/chart.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 64ms (Views: 15.8ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/suggest_rates/chart.pdf" for 127.0.0.1 at 2011-04-23 13:29:16 -1000
+  Processing by SuggestRatesController#chart as PDF
+  [1m[35mSQL (2.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggest_rate_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')[0m
+  [1m[35mSQL (0.5ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')
+  [1m[36mSQL (1.3ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')[0m
+  [1m[35mSQL (1.1ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')[0m
+  [1m[35mSQL (0.9ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')
+***************WICKED***************
+Rendered suggest_rates/chart.pdf.erb (1.5ms)
+Completed   in 59ms
+
+RuntimeError (Bad wkhtmltopdf's path):
+  app/controllers/suggest_rates_controller.rb:29:in `block (2 levels) in chart'
+  app/controllers/suggest_rates_controller.rb:26:in `chart'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.6ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.7ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (36.3ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 13:29:24 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (1.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
   [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
   [1m[35mSQL (2.8ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 Rendered pages/continue.html.erb within layouts/application (17.1ms)
 Completed 200 OK in 190ms (Views: 37.3ms | ActiveRecord: 8.2ms)
 
@@ -32693,11 +32794,23 @@ Started GET "/survey_suggests/chooseSurvey" for 127.0.0.1 at 2011-04-23 21:25:06
   Processing by SurveySuggestsController#chooseSurvey as HTML
   [1m[36mSurvey Load (0.9ms)[0m  [1mSELECT "surveys".* FROM "surveys"[0m
   [1m[35mSQL (1.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+[0m
+Rendered pages/continue.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 70ms (Views: 17.1ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/survey_suggests/chooseSurvey" for 127.0.0.1 at 2011-04-23 13:29:26 -1000
+  Processing by SurveySuggestsController#chooseSurvey as HTML
+  [1m[35mSurvey Load (1.2ms)[0m  SELECT "surveys".* FROM "surveys"
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"surveys"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 Rendered survey_suggests/chooseSurvey.html.erb within layouts/application (70.9ms)
 Completed 200 OK in 134ms (Views: 93.6ms | ActiveRecord: 2.8ms)
 
@@ -32743,11 +32856,23 @@ Started POST "/suggest_rates/suggest" for 127.0.0.1 at 2011-04-23 21:27:07 -1000
   [1m[36mSurvey Load (1.1ms)[0m  [1mSELECT "surveys".* FROM "surveys" WHERE ("surveys"."id" = 1) LIMIT 1[0m
   [1m[35mSuggest Load (0.6ms)[0m  SELECT "suggests".* FROM "suggests"
   [1m[36mSQL (3.5ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+[0m
+Rendered survey_suggests/chooseSurvey.html.erb within layouts/application (56.1ms)
+Completed 200 OK in 85ms (Views: 67.7ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/suggest_rates/suggest" for 127.0.0.1 at 2011-04-23 13:29:29 -1000
+  Processing by SuggestRatesController#suggest as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bf5xxtJHWtj87BtYYcqAI8e6Qp5J289/A6RB8Y9WirA=", "id"=>["1"], "commit"=>"Submit"}
+  [1m[35mSQL (1.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"surveys"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 [0m
   [1m[35mSQL (1.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
  FROM pg_attribute a LEFT JOIN pg_attrdef d
@@ -32763,12 +32888,18 @@ Started POST "/suggest_rates/suggest" for 127.0.0.1 at 2011-04-23 21:29:14 -1000
   Processing by SuggestRatesController#suggest as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z0bDuyvB6T3L8B0At13FBQwz8vvXMfur/QDgMhmG09E=", "id"=>["1"], "commit"=>"Submit"}
   [1m[36mSQL (1.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+  [1m[36mSurvey Load (0.7ms)[0m  [1mSELECT "surveys".* FROM "surveys" WHERE ("surveys"."id" = 1) LIMIT 1[0m
+  [1m[35mSuggest Load (0.9ms)[0m  SELECT "suggests".* FROM "suggests"
+  [1m[36mSQL (2.2ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"surveys"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
 [0m
+<<<<<<< Updated upstream
   [1m[35mSurvey Load (1.6ms)[0m  SELECT "surveys".* FROM "surveys" WHERE ("surveys"."id" = 1) LIMIT 1
   [1m[36mSuggest Load (0.6ms)[0m  [1mSELECT "suggests".* FROM "suggests"[0m
   [1m[35mSQL (2.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
@@ -32778,11 +32909,15 @@ Started POST "/suggest_rates/suggest" for 127.0.0.1 at 2011-04-23 21:29:14 -1000
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
   [1m[36mSQL (2.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+  [1m[35mSQL (1.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"suggests"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 [0m
 Rendered suggest_rates/suggest.html.erb within layouts/application (170.2ms)
 Completed 200 OK in 295ms (Views: 183.7ms | ActiveRecord: 9.6ms)
@@ -32792,6 +32927,16 @@ Started POST "/suggest_rates/create" for 127.0.0.1 at 2011-04-23 21:29:18 -1000
   Processing by SuggestRatesController#create as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z0bDuyvB6T3L8B0At13FBQwz8vvXMfur/QDgMhmG09E=", "suggest_rate"=>{"rate1"=>"great1", "rate2"=>"neutral2"}, "suggestid"=>{"1"=>"", "2"=>""}, "commit"=>"Submit"}
   [1m[35mPK and serial sequence (2.3ms)[0m   SELECT attr.attname, seq.relname
+=======
+Rendered suggest_rates/suggest.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 88ms (Views: 45.0ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/suggest_rates/create" for 127.0.0.1 at 2011-04-23 13:29:34 -1000
+  Processing by SuggestRatesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bf5xxtJHWtj87BtYYcqAI8e6Qp5J289/A6RB8Y9WirA=", "suggest_rate"=>{"rate1"=>"neutral1", "rate2"=>"great2"}, "suggestid"=>{"1"=>"", "2"=>""}, "commit"=>"Submit"}
+  [1m[36mPK and serial sequence (2.0ms)[0m  [1m SELECT attr.attname, seq.relname
+>>>>>>> Stashed changes
  FROM pg_class seq,
  pg_attribute attr,
  pg_depend dep,
@@ -32805,6 +32950,10 @@ Started POST "/suggest_rates/create" for 127.0.0.1 at 2011-04-23 21:29:18 -1000
  AND attr.attnum = cons.conkey[1]
  AND cons.contype = 'p'
  AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
+=======
+[0m
+>>>>>>> Stashed changes
 PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
 LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
                                              ^
@@ -32822,8 +32971,13 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
             AND attr.attnum       = cons.conkey[1]
             AND cons.contype      = 'p'
             AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
   [1m[36mSQL (16.5ms)[0m  [1minsert into rates(suggest_id,rate) values ('1','great1')[0m
   [1m[35mPK and serial sequence (1.6ms)[0m   SELECT attr.attname, seq.relname
+=======
+  [1m[35mSQL (4.7ms)[0m  insert into rates(suggest_id,rate) values ('1','neutral1')
+  [1m[36mPK and serial sequence (2.0ms)[0m  [1m SELECT attr.attname, seq.relname
+>>>>>>> Stashed changes
  FROM pg_class seq,
  pg_attribute attr,
  pg_depend dep,
@@ -32837,38 +32991,10 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
  AND attr.attnum = cons.conkey[1]
  AND cons.contype = 'p'
  AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
-PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
-LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
-                                             ^
-:           SELECT attr.attname, seq.relname
-          FROM pg_class      seq,
-               pg_attribute  attr,
-               pg_depend     dep,
-               pg_namespace  name,
-               pg_constraint cons
-          WHERE seq.oid           = dep.objid
-            AND seq.relkind       = 'S'
-            AND attr.attrelid     = dep.refobjid
-            AND attr.attnum       = dep.refobjsubid
-            AND attr.attrelid     = cons.conrelid
-            AND attr.attnum       = cons.conkey[1]
-            AND cons.contype      = 'p'
-            AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
-  [1m[36mPK and serial sequence (1.5ms)[0m  [1m SELECT attr.attname, seq.relname
- FROM pg_class seq,
- pg_attribute attr,
- pg_depend dep,
- pg_namespace name,
- pg_constraint cons
- WHERE seq.oid = dep.objid
- AND seq.relkind = 'S'
- AND attr.attrelid = dep.refobjid
- AND attr.attnum = dep.refobjsubid
- AND attr.attrelid = cons.conrelid
- AND attr.attnum = cons.conkey[1]
- AND cons.contype = 'p'
- AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
+=======
 [0m
+>>>>>>> Stashed changes
 PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
 LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
                                              ^
@@ -32886,8 +33012,52 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
             AND attr.attnum       = cons.conkey[1]
             AND cons.contype      = 'p'
             AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
+  [1m[36mPK and serial sequence (1.5ms)[0m  [1m SELECT attr.attname, seq.relname
+=======
+  [1m[35mPK and serial sequence (1.1ms)[0m   SELECT attr.attname, seq.relname
+>>>>>>> Stashed changes
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
+[0m
+=======
+>>>>>>> Stashed changes
+PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
+LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
+                                             ^
+:           SELECT attr.attname, seq.relname
+          FROM pg_class      seq,
+               pg_attribute  attr,
+               pg_depend     dep,
+               pg_namespace  name,
+               pg_constraint cons
+          WHERE seq.oid           = dep.objid
+            AND seq.relkind       = 'S'
+            AND attr.attrelid     = dep.refobjid
+            AND attr.attnum       = dep.refobjsubid
+            AND attr.attrelid     = cons.conrelid
+            AND attr.attnum       = cons.conkey[1]
+            AND cons.contype      = 'p'
+            AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
   [1m[35mSQL (4.9ms)[0m  insert into rates(suggest_id,rate) values ('2','neutral2')
   [1m[36mPK and serial sequence (1.4ms)[0m  [1m SELECT attr.attname, seq.relname
+=======
+  [1m[36mSQL (3.4ms)[0m  [1minsert into rates(suggest_id,rate) values ('2','great2')[0m
+  [1m[35mPK and serial sequence (1.6ms)[0m   SELECT attr.attname, seq.relname
+>>>>>>> Stashed changes
  FROM pg_class seq,
  pg_attribute attr,
  pg_depend dep,
@@ -32901,7 +33071,10 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
  AND attr.attnum = cons.conkey[1]
  AND cons.contype = 'p'
  AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
 [0m
+=======
+>>>>>>> Stashed changes
 PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
 LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
                                              ^
@@ -32919,6 +33092,7 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
             AND attr.attnum       = cons.conkey[1]
             AND cons.contype      = 'p'
             AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
 Redirected to http://localhost:3000/pages/continue
 Completed 302 Found in 43ms
 
@@ -32926,18 +33100,34 @@ Completed 302 Found in 43ms
 Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 21:29:19 -1000
   Processing by PagesController#continue as HTML
   [1m[35mSQL (3.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 23ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 13:29:34 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (2.2ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
   [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
   [1m[35mSQL (4.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 Rendered pages/continue.html.erb within layouts/application (19.5ms)
 Completed 200 OK in 167ms (Views: 37.0ms | ActiveRecord: 8.8ms)
 
@@ -32945,12 +33135,41 @@ Completed 200 OK in 167ms (Views: 37.0ms | ActiveRecord: 8.8ms)
 Started GET "/suggest_rates/chart" for 127.0.0.1 at 2011-04-23 21:29:21 -1000
   Processing by SuggestRatesController#chart as HTML
   [1m[36mSQL (3.2ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+[0m
+Rendered pages/continue.html.erb within layouts/application (43.6ms)
+Completed 200 OK in 117ms (Views: 53.8ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/suggest_rates/chart" for 127.0.0.1 at 2011-04-23 13:29:37 -1000
+  Processing by SuggestRatesController#chart as HTML
+  [1m[35mSQL (1.5ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggest_rate_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')[0m
+  [1m[35mSQL (1.1ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')
+  [1m[36mSQL (0.5ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')
+  [1m[36mSQL (1.2ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')[0m
+  [1m[35mSQL (1.3ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')
+Rendered suggest_rates/chart.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 66ms (Views: 16.7ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/suggest_rates/chart.pdf" for 127.0.0.1 at 2011-04-23 13:29:39 -1000
+  Processing by SuggestRatesController#chart as PDF
+  [1m[36mSQL (1.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"suggest_rate_view"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
 [0m
+<<<<<<< Updated upstream
   [1m[35mSQL (43.8ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')
   [1m[36mSQL (1.5ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')[0m
   [1m[35mSQL (2.6ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')
@@ -32964,18 +33183,48 @@ Completed 200 OK in 228ms (Views: 30.7ms | ActiveRecord: 55.2ms)
 Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 21:29:26 -1000
   Processing by PagesController#continue as HTML
   [1m[35mSQL (3.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+  [1m[35mSQL (1.3ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')
+  [1m[36mSQL (1.4ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')
+  [1m[36mSQL (1.3ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')
+  [1m[36mSQL (1.2ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')[0m
+***************WICKED***************
+Rendered suggest_rates/chart.pdf.erb (0.8ms)
+Completed   in 66ms
+
+RuntimeError (Bad wkhtmltopdf's path):
+  app/controllers/suggest_rates_controller.rb:29:in `block (2 levels) in chart'
+  app/controllers/suggest_rates_controller.rb:26:in `chart'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.6ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.8ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (19.6ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 13:29:56 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (1.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
   [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
   [1m[35mSQL (1.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 Rendered pages/continue.html.erb within layouts/application (16.9ms)
 Completed 200 OK in 165ms (Views: 38.5ms | ActiveRecord: 6.1ms)
 
@@ -33194,18 +33443,400 @@ Rendered /home/karmic/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib
 Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 21:34:38 -1000
   Processing by PagesController#continue as HTML
   [1m[35mSQL (3.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+Rendered pages/continue.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 76ms (Views: 21.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/pages/destroy" for 127.0.0.1 at 2011-04-23 13:29:59 -1000
+  Processing by PagesController#destroy as HTML
+Redirected to http://0.0.0.0:3000/pages/login
+Completed 302 Found in 3ms
+
+
+Started GET "/pages/login" for 127.0.0.1 at 2011-04-23 13:29:59 -1000
+  Processing by PagesController#login as HTML
+  [1m[36mSQL (0.8ms)[0m  [1mselect get_id('','')[0m
+Rendered pages/login.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 22ms (Views: 19.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 13:30:10 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bf5xxtJHWtj87BtYYcqAI8e6Qp5J289/A6RB8Y9WirA=", "user"=>{"username"=>"Catherine", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mSQL (0.6ms)[0m  select get_id('Catherine','password')
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 3ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 13:30:10 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (1.7ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (1.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered pages/continue.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 80ms (Views: 20.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2011-04-23 13:30:13 -1000
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" ORDER BY username
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered users/index.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 104ms (Views: 48.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 13:30:16 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (2.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 136ms (Views: 41.1ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/pages/destroy" for 127.0.0.1 at 2011-04-23 13:31:32 -1000
+  Processing by PagesController#destroy as HTML
+Redirected to http://0.0.0.0:3000/pages/login
+Completed 302 Found in 1ms
+
+
+Started GET "/pages/login" for 127.0.0.1 at 2011-04-23 13:31:32 -1000
+  Processing by PagesController#login as HTML
+  [1m[36mSQL (0.9ms)[0m  [1mselect get_id('','')[0m
+Rendered pages/login.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/suggest_rates/chart.pdf" for 127.0.0.1 at 2011-04-23 13:57:54 -1000
+  Processing by SuggestRatesController#chart as PDF
+  [1m[35mSQL (1.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggest_rate_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')[0m
+  [1m[35mSQL (1.1ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')[0m
+  [1m[35mSQL (2.0ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')
+***************WICKED***************
+Rendered suggest_rates/chart.pdf.erb (1.3ms)
+Rendered text template (0.0ms)
+Sent data rated_suggestion_result.pdf.pdf (35.6ms)
+Completed 200 OK in 1537ms (Views: 35.1ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 13:58:04 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bf5xxtJHWtj87BtYYcqAI8e6Qp5J289/A6RB8Y9WirA=", "user"=>{"username"=>"Alan", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mSQL (0.8ms)[0m  [1mselect get_id('Alan','password')[0m
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 4ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 13:58:04 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (1.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.2ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 69ms (Views: 18.8ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/suggest_rates/chart" for 127.0.0.1 at 2011-04-23 13:58:06 -1000
+  Processing by SuggestRatesController#chart as HTML
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggest_rate_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (0.9ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')[0m
+  [1m[35mSQL (1.8ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')
+  [1m[36mSQL (1.1ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')[0m
+Rendered suggest_rates/chart.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 68ms (Views: 18.6ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/suggest_rates/chart.pdf" for 127.0.0.1 at 2011-04-23 13:58:08 -1000
+  Processing by SuggestRatesController#chart as PDF
+  [1m[35mSQL (1.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggest_rate_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.2ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')[0m
+  [1m[35mSQL (1.3ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')[0m
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')
+***************WICKED***************
+Rendered suggest_rates/chart.pdf.erb (1.3ms)
+Rendered text template (0.0ms)
+Sent data rated_suggestion_result.pdf.pdf (2.5ms)
+Completed 200 OK in 1200ms (Views: 1.3ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 14:31:24 -1000
+
+SyntaxError (/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: invalid multibyte char (US-ASCII)
+/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: syntax error, unexpected $end
+... File.expand_path(RAILS_ROOT)+‘/public/images’ + image
+...                               ^):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/pages_controller.rb:1:in `<top (required)>'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.4ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.6ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 14:31:35 -1000
+
+SyntaxError (/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: invalid multibyte char (US-ASCII)
+/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: syntax error, unexpected $end
+... File.expand_path(RAILS_ROOT)+‘/public/images’ + image
+...                               ^):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/pages_controller.rb:1:in `<top (required)>'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.4ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 14:32:57 -1000
+  Processing by PagesController#login as HTML
+  [1m[36mSQL (1.0ms)[0m  [1mselect get_id('','')[0m
+Rendered pages/login.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 31ms (Views: 29.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 14:33:03 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bf5xxtJHWtj87BtYYcqAI8e6Qp5J289/A6RB8Y9WirA=", "user"=>{"username"=>"Alan", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mSQL (1.1ms)[0m  select get_id('Alan','password')
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 5ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 14:33:03 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (3.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered pages/continue.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 116ms (Views: 18.1ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/pages/destroy" for 127.0.0.1 at 2011-04-23 14:34:12 -1000
+
+SyntaxError (/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: invalid multibyte char (US-ASCII)
+/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: syntax error, unexpected $end
+... File.expand_path(RAILS_ROOT)+‘/public/images’ + image
+...                               ^):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/pages_controller.rb:1:in `<top (required)>'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 14:34:16 -1000
+
+SyntaxError (/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: invalid multibyte char (US-ASCII)
+/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: syntax error, unexpected $end
+... File.expand_path(RAILS_ROOT)+‘/public/images’ + image
+...                               ^):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/pages_controller.rb:1:in `<top (required)>'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.2ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (16.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 14:35:00 -1000
+
+SyntaxError (/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: invalid multibyte char (US-ASCII)
+/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: syntax error, unexpected $end
+... File.expand_path(RAILS_ROOT)+‘/public/images’ + image
+...                               ^):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/pages_controller.rb:1:in `<top (required)>'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.1ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.8ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 14:35:01 -1000
+
+SyntaxError (/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: invalid multibyte char (US-ASCII)
+/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: syntax error, unexpected $end
+... File.expand_path(RAILS_ROOT)+‘/public/images’ + image
+...                               ^):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/pages_controller.rb:1:in `<top (required)>'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.9ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 14:35:04 -1000
+
+SyntaxError (/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: invalid multibyte char (US-ASCII)
+/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: syntax error, unexpected $end
+... File.expand_path(RAILS_ROOT)+‘/public/images’ + image
+...                               ^):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/pages_controller.rb:1:in `<top (required)>'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.5ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (44.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 14:37:21 -1000
+
+SyntaxError (/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: invalid multibyte char (US-ASCII)
+/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: syntax error, unexpected $end
+... File.expand_path(RAILS_ROOT)+‘/public/images’ + image
+...                               ^):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/pages_controller.rb:1:in `<top (required)>'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 14:37:23 -1000
+
+SyntaxError (/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: invalid multibyte char (US-ASCII)
+/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: syntax error, unexpected $end
+... File.expand_path(RAILS_ROOT)+‘/public/images’ + image
+...                               ^):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/pages_controller.rb:1:in `<top (required)>'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.9ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 14:37:24 -1000
+
+SyntaxError (/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: invalid multibyte char (US-ASCII)
+/home/alan/rails_apps/karmic/project3/app/helpers/application_helper.rb:4: syntax error, unexpected $end
+... File.expand_path(RAILS_ROOT)+‘/public/images’ + image
+...                               ^):
+  app/controllers/application_controller.rb:1:in `<top (required)>'
+  app/controllers/pages_controller.rb:1:in `<top (required)>'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.1ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 14:37:39 -1000
+  Processing by PagesController#login as HTML
+  [1m[35mSQL (2.2ms)[0m  select get_id('','')
+Rendered pages/login.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 22ms (Views: 17.9ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 14:37:59 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bf5xxtJHWtj87BtYYcqAI8e6Qp5J289/A6RB8Y9WirA=", "user"=>{"username"=>"Alan", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mSQL (0.6ms)[0m  [1mselect get_id('Alan','password')[0m
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 4ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 14:37:59 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (2.8ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+<<<<<<< Updated upstream
   [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
   [1m[35mSQL (4.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 Rendered pages/continue.html.erb within layouts/application (33.6ms)
 Completed 200 OK in 229ms (Views: 66.9ms | ActiveRecord: 8.0ms)
 
@@ -33256,26 +33887,417 @@ Started POST "/suggest_rates/suggest" for 127.0.0.1 at 2011-04-23 21:35:10 -1000
   Processing by SuggestRatesController#suggest as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z0bDuyvB6T3L8B0At13FBQwz8vvXMfur/QDgMhmG09E=", "id"=>["1"], "commit"=>"Continue"}
   [1m[35mSQL (2.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+ERROR: compiling _app_views_pages_continue_html_erb___602414622_80966850__47465129 RAISED /home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:8: syntax error, unexpected tLABEL
+...hoto.png’, :style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:8: syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+...:style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:9: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+          ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:9: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+                            ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:16: syntax error, unexpected tLABEL
+...hoto.png’, :style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:16: syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+...:style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:17: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+          ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:17: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+                            ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:24: syntax error, unexpected tLABEL
+...hoto.png’, :style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:24: syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+...:style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:25: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+          ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:25: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+                            ^
+Function body:           def _app_views_pages_continue_html_erb___602414622_80966850__47465129(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "pages/continue";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h2>Welcome ');@output_buffer.append= ( @username );@output_buffer.safe_concat('</h2>
+'); if cookies.signed[:user_id] == 1 
+@output_buffer.safe_concat('	');@output_buffer.append= ( link_to "View Users", :controller => "users", :action => "index" );@output_buffer.safe_concat(' <br />
+	');@output_buffer.append= ( link_to "Take Survey", :controller => "survey_suggests", :action => "chooseSurvey" );@output_buffer.safe_concat(' <br />
+	');@output_buffer.append= ( link_to "View Survey Results", :controller => "suggest_rates", :action => "chart" );@output_buffer.safe_concat(' <br /> <br />
+	');@output_buffer.append= ( link_to "Exit", :controller => "pages", :action => "destroy" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+');@output_buffer.append= ( pdf_image_tag(‘photo.png’, :style=>”margin:0px;padding:0px”,
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+'); elsif cookies.signed[:user_id] == -1 
+@output_buffer.safe_concat('	');@output_buffer.append= ( link_to "Take Survey", :controller => "survey_suggests", :action => "chooseSurvey" );@output_buffer.safe_concat(' <br />
+	');@output_buffer.append= ( link_to "View Survey Results", :controller => "suggest_rates", :action => "chart" );@output_buffer.safe_concat(' <br /> <br />
+	');@output_buffer.append= ( link_to "Exit", :controller => "pages", :action => "destroy" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+');@output_buffer.append= ( pdf_image_tag(‘photo.png’, :style=>”margin:0px;padding:0px”,
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+'); else 
+@output_buffer.safe_concat('	');@output_buffer.append= ( link_to "Take Survey", :controller => "survey_suggests", :action => "chooseSurvey" );@output_buffer.safe_concat(' <br />
+	');@output_buffer.append= ( link_to "View Survey Results", :controller => "suggest_rates", :action => "chart" );@output_buffer.safe_concat(' <br /> <br />
+	');@output_buffer.append= ( link_to "Exit", :controller => "pages", :action => "destroy" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+');@output_buffer.append= ( pdf_image_tag(‘photo.png’, :style=>”margin:0px;padding:0px”,
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `module_eval'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `compile'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `block in render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/home/alan/rails_apps/karmic/project3/vendor/plugins/wicked_pdf/lib/pdf_helper.rb:30:in `render_to_string_with_wicked_pdf'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/alan/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/alan/rails_apps/karmic/project3/vendor/plugins/wicked_pdf/lib/pdf_helper.rb:19:in `render_with_wicked_pdf'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__130208148__process_action__145929708__callbacks'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `block in action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/methodoverride.rb:24:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `block in call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/sendfile.rb:107:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/runtime.rb:17:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in `service'
+/home/alan/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/home/alan/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/home/alan/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered pages/continue.html.erb within layouts/application (62.5ms)
+Completed   in 133ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 14:38:10 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (1.3ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
- WHERE a.attrelid = '"surveys"'::regclass
- AND a.attnum > 0 AND NOT a.attisdropped
- ORDER BY a.attnum
-  [1m[36mSurvey Load (1.0ms)[0m  [1mSELECT "surveys".* FROM "surveys" WHERE ("surveys"."id" = 1) LIMIT 1[0m
-  [1m[35mSuggest Load (0.7ms)[0m  SELECT "suggests".* FROM "suggests"
-  [1m[36mSQL (3.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
- FROM pg_attribute a LEFT JOIN pg_attrdef d
- ON a.attrelid = d.adrelid AND a.attnum = d.adnum
- WHERE a.attrelid = '"surveys"'::regclass
+ WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
 [0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+ERROR: compiling _app_views_pages_continue_html_erb___602414622_85056610__47465129 RAISED /home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:8: syntax error, unexpected tLABEL
+...hoto.png’, :style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:8: syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+...:style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:9: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+          ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:9: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+                            ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:16: syntax error, unexpected tLABEL
+...hoto.png’, :style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:16: syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+...:style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:17: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+          ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:17: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+                            ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:24: syntax error, unexpected tLABEL
+...hoto.png’, :style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:24: syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+...:style=>”margin:0px;padding:0px”,
+...                               ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:25: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+          ^
+/home/alan/rails_apps/karmic/project3/app/views/pages/continue.html.erb:25: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+                            ^
+Function body:           def _app_views_pages_continue_html_erb___602414622_85056610__47465129(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "pages/continue";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h2>Welcome ');@output_buffer.append= ( @username );@output_buffer.safe_concat('</h2>
+'); if cookies.signed[:user_id] == 1 
+@output_buffer.safe_concat('	');@output_buffer.append= ( link_to "View Users", :controller => "users", :action => "index" );@output_buffer.safe_concat(' <br />
+	');@output_buffer.append= ( link_to "Take Survey", :controller => "survey_suggests", :action => "chooseSurvey" );@output_buffer.safe_concat(' <br />
+	');@output_buffer.append= ( link_to "View Survey Results", :controller => "suggest_rates", :action => "chart" );@output_buffer.safe_concat(' <br /> <br />
+	');@output_buffer.append= ( link_to "Exit", :controller => "pages", :action => "destroy" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+');@output_buffer.append= ( pdf_image_tag(‘photo.png’, :style=>”margin:0px;padding:0px”,
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+'); elsif cookies.signed[:user_id] == -1 
+@output_buffer.safe_concat('	');@output_buffer.append= ( link_to "Take Survey", :controller => "survey_suggests", :action => "chooseSurvey" );@output_buffer.safe_concat(' <br />
+	');@output_buffer.append= ( link_to "View Survey Results", :controller => "suggest_rates", :action => "chart" );@output_buffer.safe_concat(' <br /> <br />
+	');@output_buffer.append= ( link_to "Exit", :controller => "pages", :action => "destroy" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+');@output_buffer.append= ( pdf_image_tag(‘photo.png’, :style=>”margin:0px;padding:0px”,
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+'); else 
+@output_buffer.safe_concat('	');@output_buffer.append= ( link_to "Take Survey", :controller => "survey_suggests", :action => "chooseSurvey" );@output_buffer.safe_concat(' <br />
+	');@output_buffer.append= ( link_to "View Survey Results", :controller => "suggest_rates", :action => "chart" );@output_buffer.safe_concat(' <br /> <br />
+	');@output_buffer.append= ( link_to "Exit", :controller => "pages", :action => "destroy" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+');@output_buffer.append= ( pdf_image_tag(‘photo.png’, :style=>”margin:0px;padding:0px”,
+  :width=>”160 , :height=>”160 ) );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `module_eval'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/template.rb:255:in `compile'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/template.rb:134:in `block in render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications.rb:54:in `instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/template.rb:127:in `render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_view/render/rendering.rb:26:in `render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/home/alan/rails_apps/karmic/project3/vendor/plugins/wicked_pdf/lib/pdf_helper.rb:30:in `render_to_string_with_wicked_pdf'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:92:in `render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/alan/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/alan/rails_apps/karmic/project3/vendor/plugins/wicked_pdf/lib/pdf_helper.rb:19:in `render_with_wicked_pdf'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:151:in `process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:435:in `_run__130208148__process_action__145929708__callbacks'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/notifications.rb:52:in `instrument'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/base.rb:120:in `process'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/abstract_controller/rendering.rb:40:in `process'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal.rb:138:in `dispatch'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_controller/metal.rb:178:in `block in action'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/methodoverride.rb:24:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/cookies.rb:295:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:32:in `block in call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:12:in `cache'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/query_cache.rb:31:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activerecord-3.0.3/lib/active_record/connection_adapters/abstract/connection_pool.rb:353:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/sendfile.rb:107:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/railties-3.0.3/lib/rails/rack/logger.rb:13:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/runtime.rb:17:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/activesupport-3.0.3/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/lock.rb:11:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/railties-3.0.3/lib/rails/application.rb:168:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/railties-3.0.3/lib/rails/application.rb:77:in `method_missing'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/railties-3.0.3/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/content_length.rb:13:in `call'
+/home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/rack-1.2.2/lib/rack/handler/webrick.rb:52:in `service'
+/home/alan/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/home/alan/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/home/alan/.rvm/rubies/ruby-1.9.2-p136/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered pages/continue.html.erb within layouts/application (6.9ms)
+Completed   in 75ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 14:41:12 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (1.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 84ms (Views: 19.6ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/survey_suggests/chooseSurvey" for 127.0.0.1 at 2011-04-23 14:41:16 -1000
+  Processing by SurveySuggestsController#chooseSurvey as HTML
+  [1m[36mSurvey Load (1.0ms)[0m  [1mSELECT "surveys".* FROM "surveys"[0m
+  [1m[35mSQL (1.2ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered survey_suggests/chooseSurvey.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 49ms (Views: 27.8ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/suggest_rates/suggest" for 127.0.0.1 at 2011-04-23 14:41:19 -1000
+  Processing by SuggestRatesController#suggest as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bf5xxtJHWtj87BtYYcqAI8e6Qp5J289/A6RB8Y9WirA=", "id"=>["1"], "commit"=>"Submit"}
+  [1m[36mSQL (2.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+<<<<<<< Updated upstream
+  [1m[36mSurvey Load (1.0ms)[0m  [1mSELECT "surveys".* FROM "surveys" WHERE ("surveys"."id" = 1) LIMIT 1[0m
+  [1m[35mSuggest Load (0.7ms)[0m  SELECT "suggests".* FROM "suggests"
+  [1m[36mSQL (3.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+[0m
+  [1m[35mSurvey Load (0.7ms)[0m  SELECT "surveys".* FROM "surveys" WHERE ("surveys"."id" = 1) LIMIT 1
+  [1m[36mSuggest Load (0.4ms)[0m  [1mSELECT "suggests".* FROM "suggests"[0m
+  [1m[35mSQL (1.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+<<<<<<< Updated upstream
+[0m
   [1m[35mSQL (2.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+  [1m[36mSQL (1.5ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"suggests"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 Rendered suggest_rates/suggest.html.erb within layouts/application (100.9ms)
 Completed 200 OK in 234ms (Views: 117.9ms | ActiveRecord: 10.1ms)
 
@@ -33284,6 +34306,17 @@ Started POST "/suggest_rates/create" for 127.0.0.1 at 2011-04-23 21:38:23 -1000
   Processing by SuggestRatesController#create as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z0bDuyvB6T3L8B0At13FBQwz8vvXMfur/QDgMhmG09E=", "suggest_rate"=>{"rate1"=>"great1", "rate2"=>"neutral2"}, "suggestid"=>{"1"=>"", "2"=>""}, "commit"=>"Continue"}
   [1m[36mPK and serial sequence (2.1ms)[0m  [1m SELECT attr.attname, seq.relname
+=======
+[0m
+Rendered suggest_rates/suggest.html.erb within layouts/application (69.8ms)
+Completed 200 OK in 129ms (Views: 77.6ms | ActiveRecord: 7.3ms)
+
+
+Started POST "/suggest_rates/create" for 127.0.0.1 at 2011-04-23 14:41:23 -1000
+  Processing by SuggestRatesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Bf5xxtJHWtj87BtYYcqAI8e6Qp5J289/A6RB8Y9WirA=", "suggest_rate"=>{"rate1"=>"bad1", "rate2"=>"bad2"}, "suggestid"=>{"1"=>"", "2"=>""}, "commit"=>"Submit"}
+  [1m[35mPK and serial sequence (1.8ms)[0m   SELECT attr.attname, seq.relname
+>>>>>>> Stashed changes
  FROM pg_class seq,
  pg_attribute attr,
  pg_depend dep,
@@ -33297,7 +34330,10 @@ Started POST "/suggest_rates/create" for 127.0.0.1 at 2011-04-23 21:38:23 -1000
  AND attr.attnum = cons.conkey[1]
  AND cons.contype = 'p'
  AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
 [0m
+=======
+>>>>>>> Stashed changes
 PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
 LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
                                              ^
@@ -33315,8 +34351,13 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
             AND attr.attnum       = cons.conkey[1]
             AND cons.contype      = 'p'
             AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
   [1m[35mSQL (18.1ms)[0m  insert into rates(suggest_id,rate) values ('1','great1')
   [1m[36mPK and serial sequence (2.0ms)[0m  [1m SELECT attr.attname, seq.relname
+=======
+  [1m[36mSQL (2.7ms)[0m  [1minsert into rates(suggest_id,rate) values ('1','bad1')[0m
+  [1m[35mPK and serial sequence (1.6ms)[0m   SELECT attr.attname, seq.relname
+>>>>>>> Stashed changes
  FROM pg_class seq,
  pg_attribute attr,
  pg_depend dep,
@@ -33330,7 +34371,10 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
  AND attr.attnum = cons.conkey[1]
  AND cons.contype = 'p'
  AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
 [0m
+=======
+>>>>>>> Stashed changes
 PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
 LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
                                              ^
@@ -33348,7 +34392,11 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
             AND attr.attnum       = cons.conkey[1]
             AND cons.contype      = 'p'
             AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
   [1m[35mPK and serial sequence (2.1ms)[0m   SELECT attr.attname, seq.relname
+=======
+  [1m[36mPK and serial sequence (1.4ms)[0m  [1m SELECT attr.attname, seq.relname
+>>>>>>> Stashed changes
  FROM pg_class seq,
  pg_attribute attr,
  pg_depend dep,
@@ -33362,6 +34410,10 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
  AND attr.attnum = cons.conkey[1]
  AND cons.contype = 'p'
  AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
+=======
+[0m
+>>>>>>> Stashed changes
 PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
 LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
                                              ^
@@ -33379,8 +34431,13 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
             AND attr.attnum       = cons.conkey[1]
             AND cons.contype      = 'p'
             AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
   [1m[36mSQL (2.9ms)[0m  [1minsert into rates(suggest_id,rate) values ('2','neutral2')[0m
   [1m[35mPK and serial sequence (2.1ms)[0m   SELECT attr.attname, seq.relname
+=======
+  [1m[35mSQL (5.6ms)[0m  insert into rates(suggest_id,rate) values ('2','bad2')
+  [1m[36mPK and serial sequence (1.2ms)[0m  [1m SELECT attr.attname, seq.relname
+>>>>>>> Stashed changes
  FROM pg_class seq,
  pg_attribute attr,
  pg_depend dep,
@@ -33394,6 +34451,10 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
  AND attr.attnum = cons.conkey[1]
  AND cons.contype = 'p'
  AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
+=======
+[0m
+>>>>>>> Stashed changes
 PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
 LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
                                              ^
@@ -33411,6 +34472,7 @@ LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
             AND attr.attnum       = cons.conkey[1]
             AND cons.contype      = 'p'
             AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+<<<<<<< Updated upstream
 Redirected to http://localhost:3000/pages/continue
 Completed 302 Found in 46ms
 
@@ -33418,19 +34480,34 @@ Completed 302 Found in 46ms
 Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 21:38:23 -1000
   Processing by PagesController#continue as HTML
   [1m[36mSQL (2.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 20ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 14:41:23 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (2.4ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 [0m
   [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
   [1m[36mSQL (2.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (2.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 [0m
 Rendered pages/continue.html.erb within layouts/application (24.6ms)
 Completed 200 OK in 241ms (Views: 43.5ms | ActiveRecord: 36.0ms)
@@ -33451,11 +34528,21 @@ Rendered /home/karmic/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib
 Started GET "/suggest_rates/chart" for 127.0.0.1 at 2011-04-23 21:39:38 -1000
   Processing by SuggestRatesController#chart as HTML
   [1m[35mSQL (3.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+Rendered pages/continue.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 109ms (Views: 17.3ms | ActiveRecord: 21.4ms)
+
+
+Started GET "/suggest_rates/chart" for 127.0.0.1 at 2011-04-23 14:41:25 -1000
+  Processing by SuggestRatesController#chart as HTML
+  [1m[36mSQL (2.5ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"suggest_rate_view"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
   [1m[36mSQL (1.6ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')[0m
   [1m[35mSQL (2.9ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')
   [1m[36mSQL (1.5ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')[0m
@@ -33524,11 +34611,28 @@ Started GET "/users/index" for 127.0.0.1 at 2011-04-23 21:40:02 -1000
   Processing by UsersController#index as HTML
   [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY username[0m
   [1m[35mSQL (3.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+[0m
+  [1m[35mSQL (1.1ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')[0m
+  [1m[35mSQL (0.8ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')[0m
+  [1m[35mSQL (1.2ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')
+  [1m[36mSQL (1.4ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')[0m
+Rendered suggest_rates/chart.html.erb within layouts/application (41.3ms)
+Completed 200 OK in 115ms (Views: 54.0ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 14:41:30 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (1.4ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 Rendered users/index.html.erb within layouts/application (129.6ms)
 Completed 200 OK in 195ms (Views: 145.2ms | ActiveRecord: 4.1ms)
 
@@ -33615,11 +34719,16 @@ Started GET "/users/index" for 127.0.0.1 at 2011-04-23 21:40:48 -1000
   Processing by UsersController#index as HTML
   [1m[35mUser Load (1.4ms)[0m  SELECT "users".* FROM "users" ORDER BY username
   [1m[36mSQL (2.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+=======
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+>>>>>>> Stashed changes
  FROM pg_attribute a LEFT JOIN pg_attrdef d
  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
  WHERE a.attrelid = '"users"'::regclass
  AND a.attnum > 0 AND NOT a.attisdropped
  ORDER BY a.attnum
+<<<<<<< Updated upstream
 [0m
 Rendered users/index.html.erb within layouts/application (133.6ms)
 Completed 200 OK in 313ms (Views: 163.7ms | ActiveRecord: 4.1ms)
@@ -33651,3 +34760,1040 @@ Started GET "/users/chooseUser" for 127.0.0.1 at 2011-04-23 21:42:35 -1000
 [0m
 Rendered users/chooseUser.html.erb within layouts/application (99.3ms)
 Completed 200 OK in 271ms (Views: 199.5ms | ActiveRecord: 3.4ms)
+=======
+Rendered pages/continue.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 72ms (Views: 18.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/pages/destroy" for 127.0.0.1 at 2011-04-23 22:03:45 -1000
+  Processing by PagesController#destroy as HTML
+Redirected to http://0.0.0.0:3000/pages/login
+Completed 302 Found in 2ms
+
+
+Started GET "/pages/login" for 127.0.0.1 at 2011-04-23 22:03:45 -1000
+  Processing by PagesController#login as HTML
+  [1m[36mSQL (0.6ms)[0m  [1mselect get_id('','')[0m
+Rendered pages/login.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 20ms (Views: 16.7ms | ActiveRecord: 0.6ms)
+>>>>>>> Stashed changes
+
+
+Started GET "/" for 127.0.0.1 at 2011-04-23 22:25:06 -1000
+  [1m[36mSQL (38.4ms)[0m  [1mSHOW client_min_messages[0m
+  [1m[35mSQL (0.2ms)[0m  SET client_min_messages TO 'panic'
+  [1m[36mSQL (0.5ms)[0m  [1mSET standard_conforming_strings = on[0m
+  [1m[35mSQL (0.6ms)[0m  SET client_min_messages TO 'notice'
+  [1m[36mSQL (1.0ms)[0m  [1mSET time zone 'UTC'[0m
+  [1m[35mSQL (0.7ms)[0m  SHOW TIME ZONE
+  Processing by PagesController#login as HTML
+  [1m[36mSQL (245.5ms)[0m  [1mselect get_id('','')[0m
+Rendered pages/login.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 272ms (Views: 24.6ms | ActiveRecord: 286.9ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 22:25:24 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "user"=>{"username"=>"Alan", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mSQL (125.2ms)[0m  select get_id('Alan','password')
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 128ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:25:24 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (112.8ms)[0m  [1m SELECT tablename
+ FROM pg_tables
+ WHERE schemaname = ANY (current_schemas(false))
+[0m
+  [1m[35mSQL (11.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (64.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 459ms (Views: 20.0ms | ActiveRecord: 315.3ms)
+
+
+Started GET "/survey_suggests/chooseSurvey" for 127.0.0.1 at 2011-04-23 22:25:28 -1000
+  Processing by SurveySuggestsController#chooseSurvey as HTML
+  [1m[36mSurvey Load (7.9ms)[0m  [1mSELECT "surveys".* FROM "surveys"[0m
+  [1m[35mSQL (1.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered survey_suggests/chooseSurvey.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 56ms (Views: 29.2ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/suggest_rates/chart" for 127.0.0.1 at 2011-04-23 22:25:33 -1000
+  Processing by SuggestRatesController#chart as HTML
+  [1m[36mSQL (2.3ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggest_rate_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (128.0ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')[0m
+  [1m[35mSQL (0.9ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')
+  [1m[36mSQL (1.2ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')[0m
+  [1m[35mSQL (1.1ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')[0m
+Rendered suggest_rates/chart.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 238ms (Views: 19.8ms | ActiveRecord: 135.5ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:25:37 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (1.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 70ms (Views: 18.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/pages/destroy" for 127.0.0.1 at 2011-04-23 22:25:39 -1000
+  Processing by PagesController#destroy as HTML
+Redirected to http://0.0.0.0:3000/pages/login
+Completed 302 Found in 2ms
+
+
+Started GET "/pages/login" for 127.0.0.1 at 2011-04-23 22:25:40 -1000
+  Processing by PagesController#login as HTML
+  [1m[36mSQL (0.5ms)[0m  [1mselect get_id('','')[0m
+Rendered pages/login.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 22:25:45 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "user"=>{"username"=>"Catherine", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mSQL (0.8ms)[0m  select get_id('Catherine','password')
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 3ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:25:45 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (1.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered pages/continue.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 79ms (Views: 20.6ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/survey_suggests/index" for 127.0.0.1 at 2011-04-23 22:25:49 -1000
+  Processing by SurveySuggestsController#index as HTML
+  [1m[35mSurveySuggest Load (1.4ms)[0m  SELECT "survey_suggest_view".* FROM "survey_suggest_view" ORDER BY survey
+  [1m[36mSQL (1.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"survey_suggest_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered survey_suggests/index.html.erb within layouts/application (107.2ms)
+Completed   in 134ms
+
+ActionView::Template::Error (undefined method `created_at' for #<SurveySuggest:0x9d1d450>):
+    10: 		<tr>
+    11: 			<td> <%= u.survey %> </td>
+    12: 			<td> <%= u.suggest %> </td>
+    13: 			<td> <%= u.created_at.asctime  %> </td>
+    14: 			<td> <%= u.updated_at.asctime  %> </td>
+    15: 		</tr>
+    16: 	<% end %>
+  app/views/survey_suggests/index.html.erb:13:in `block in _app_views_survey_suggests_index_html_erb__406561219_82361340_1063049'
+  app/views/survey_suggests/index.html.erb:9:in `each'
+  app/views/survey_suggests/index.html.erb:9:in `_app_views_survey_suggests_index_html_erb__406561219_82361340_1063049'
+
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.7ms)
+Rendered /home/alan/.rvm/gems/ruby-1.9.2-p136@rails3/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (25.4ms)
+
+
+Started GET "/pages/destroy" for 127.0.0.1 at 2011-04-23 22:26:02 -1000
+  Processing by PagesController#destroy as HTML
+Redirected to http://0.0.0.0:3000/pages/login
+Completed 302 Found in 2ms
+
+
+Started GET "/pages/login" for 127.0.0.1 at 2011-04-23 22:26:03 -1000
+  Processing by PagesController#login as HTML
+  [1m[35mSQL (0.9ms)[0m  select get_id('','')
+Rendered pages/login.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 22:28:13 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "user"=>{"username"=>"Catherine", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mSQL (4.1ms)[0m  [1mselect get_id('Catherine','password')[0m
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 7ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:28:13 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (1.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (5.4ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 106ms (Views: 19.1ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/survey_suggests/index" for 127.0.0.1 at 2011-04-23 22:28:16 -1000
+  Processing by SurveySuggestsController#index as HTML
+  [1m[36mSurveySuggest Load (6.5ms)[0m  [1mSELECT "survey_suggest_view".* FROM "survey_suggest_view" ORDER BY survey[0m
+  [1m[35mSQL (2.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"survey_suggest_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered survey_suggests/index.html.erb within layouts/application (123.0ms)
+Completed 200 OK in 155ms (Views: 129.9ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/survey_suggests/whichSuggest" for 127.0.0.1 at 2011-04-23 22:28:24 -1000
+  Processing by SurveySuggestsController#whichSuggest as HTML
+  [1m[36mSuggest Load (1.4ms)[0m  [1mSELECT "suggests".* FROM "suggests"[0m
+  [1m[35mSQL (1.4ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggests"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered survey_suggests/whichSuggest.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 55ms (Views: 36.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/survey_suggests/whichSurvey" for 127.0.0.1 at 2011-04-23 22:28:29 -1000
+  Processing by SurveySuggestsController#whichSurvey as HTML
+  [1m[36mSurvey Load (0.5ms)[0m  [1mSELECT "surveys".* FROM "surveys"[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered survey_suggests/whichSurvey.html.erb within layouts/application (35.2ms)
+Completed 200 OK in 65ms (Views: 46.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/survey_suggests/whichSurvey" for 127.0.0.1 at 2011-04-23 22:28:35 -1000
+  Processing by SurveySuggestsController#whichSurvey as HTML
+  [1m[36mSurvey Load (1.1ms)[0m  [1mSELECT "surveys".* FROM "surveys"[0m
+  [1m[35mSQL (1.6ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered survey_suggests/whichSurvey.html.erb within layouts/application (66.0ms)
+Completed 200 OK in 96ms (Views: 76.2ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/survey_suggests/editSurvey" for 127.0.0.1 at 2011-04-23 22:28:38 -1000
+  Processing by SurveySuggestsController#editSurvey as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "id"=>["1"], "commit"=>"Continue"}
+  [1m[36mSQL (1.6ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSurvey Load (0.8ms)[0m  SELECT "surveys".* FROM "surveys" WHERE ("surveys"."id" = 1) LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered survey_suggests/editSurvey.html.erb within layouts/application (39.4ms)
+Completed 200 OK in 88ms (Views: 52.9ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/survey_suggests/updateSurvey" for 127.0.0.1 at 2011-04-23 22:28:41 -1000
+  Processing by SurveySuggestsController#updateSurvey as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "survey"=>{"survey"=>"Survey 1", "id"=>"1"}, "commit"=>"Continue"}
+  [1m[35mSQL (2.5ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSurvey Load (1.0ms)[0m  [1mSELECT "surveys".* FROM "surveys" WHERE ("surveys"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  BEGIN
+  [1m[36mSQL (1.3ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (0.5ms)[0m  COMMIT
+Redirected to http://0.0.0.0:3000/survey_suggests/index
+Completed 302 Found in 63ms
+
+
+Started GET "/survey_suggests/index" for 127.0.0.1 at 2011-04-23 22:28:41 -1000
+  Processing by SurveySuggestsController#index as HTML
+  [1m[36mSurveySuggest Load (1.1ms)[0m  [1mSELECT "survey_suggest_view".* FROM "survey_suggest_view" ORDER BY survey[0m
+  [1m[35mSQL (1.4ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"survey_suggest_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered survey_suggests/index.html.erb within layouts/application (51.4ms)
+Completed 200 OK in 110ms (Views: 60.5ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:28:43 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (1.3ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (2.9ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (1.7ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered pages/continue.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 110ms (Views: 20.8ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/suggest_rates/chart" for 127.0.0.1 at 2011-04-23 22:28:48 -1000
+  Processing by SuggestRatesController#chart as HTML
+  [1m[35mSQL (1.8ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggest_rate_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (2.7ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')[0m
+  [1m[35mSQL (0.9ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')
+  [1m[36mSQL (1.4ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')[0m
+  [1m[35mSQL (1.0ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')[0m
+  [1m[35mSQL (0.6ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')
+Rendered suggest_rates/chart.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 78ms (Views: 20.7ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:28:50 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (1.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered pages/continue.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 72ms (Views: 18.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/survey_suggests/chooseSurvey" for 127.0.0.1 at 2011-04-23 22:28:52 -1000
+  Processing by SurveySuggestsController#chooseSurvey as HTML
+  [1m[35mSurvey Load (0.9ms)[0m  SELECT "surveys".* FROM "surveys"
+  [1m[36mSQL (2.3ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered survey_suggests/chooseSurvey.html.erb within layouts/application (28.6ms)
+Completed 200 OK in 56ms (Views: 37.6ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2011-04-23 22:29:00 -1000
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" ORDER BY username
+  [1m[36mSQL (1.3ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered users/index.html.erb within layouts/application (86.1ms)
+Completed 200 OK in 117ms (Views: 97.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:29:02 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (2.5ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (48.9ms)
+Completed 200 OK in 120ms (Views: 60.0ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/pages/destroy" for 127.0.0.1 at 2011-04-23 22:31:20 -1000
+  Processing by PagesController#destroy as HTML
+Redirected to http://0.0.0.0:3000/pages/login
+Completed 302 Found in 2ms
+
+
+Started GET "/pages/login" for 127.0.0.1 at 2011-04-23 22:31:20 -1000
+  Processing by PagesController#login as HTML
+  [1m[36mSQL (0.8ms)[0m  [1mselect get_id('','')[0m
+Rendered pages/login.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 22:35:27 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "user"=>{"username"=>"John", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mSQL (1.2ms)[0m  select get_id('John','password')
+Rendered pages/login.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 21ms (Views: 18.3ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 22:35:36 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "user"=>{"username"=>"Catherine", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mSQL (2.9ms)[0m  [1mselect get_id('Catherine','password')[0m
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 7ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:35:36 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (1.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 71ms (Views: 18.2ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2011-04-23 22:35:38 -1000
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY username[0m
+  [1m[35mSQL (1.8ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered users/index.html.erb within layouts/application (36.3ms)
+Completed 200 OK in 66ms (Views: 45.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:35:42 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (1.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (2.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered pages/continue.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 107ms (Views: 19.0ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/pages/destroy" for 127.0.0.1 at 2011-04-23 22:35:45 -1000
+  Processing by PagesController#destroy as HTML
+Redirected to http://0.0.0.0:3000/pages/login
+Completed 302 Found in 2ms
+
+
+Started GET "/pages/login" for 127.0.0.1 at 2011-04-23 22:35:45 -1000
+  Processing by PagesController#login as HTML
+  [1m[35mSQL (1.3ms)[0m  select get_id('','')
+Rendered pages/login.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 21ms (Views: 16.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 22:35:51 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "user"=>{"username"=>"John", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mSQL (1.2ms)[0m  [1mselect get_id('John','john')[0m
+Rendered pages/login.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 22:36:01 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "user"=>{"username"=>"John", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mSQL (1.1ms)[0m  select get_id('John','John')
+Rendered pages/login.html.erb within layouts/application (40.3ms)
+Completed 200 OK in 55ms (Views: 51.6ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 22:36:12 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "user"=>{"username"=>"John", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mSQL (0.8ms)[0m  [1mselect get_id('John','doe')[0m
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 4ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:36:12 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (2.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [1m[35mSQL (1.1ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 106ms (Views: 18.1ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/survey_suggests/chooseSurvey" for 127.0.0.1 at 2011-04-23 22:36:18 -1000
+  Processing by SurveySuggestsController#chooseSurvey as HTML
+  [1m[36mSurvey Load (1.7ms)[0m  [1mSELECT "surveys".* FROM "surveys"[0m
+  [1m[35mSQL (1.2ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered survey_suggests/chooseSurvey.html.erb within layouts/application (35.9ms)
+Completed 200 OK in 97ms (Views: 78.2ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/suggest_rates/suggest" for 127.0.0.1 at 2011-04-23 22:36:23 -1000
+  Processing by SuggestRatesController#suggest as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "id"=>["1"], "commit"=>"Continue"}
+  [1m[36mSQL (2.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSurvey Load (0.9ms)[0m  SELECT "surveys".* FROM "surveys" WHERE ("surveys"."id" = 1) LIMIT 1
+  [1m[36mSuggest Load (0.5ms)[0m  [1mSELECT "suggests".* FROM "suggests"[0m
+  [1m[35mSQL (1.9ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggests"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered suggest_rates/suggest.html.erb within layouts/application (40.5ms)
+Completed 200 OK in 95ms (Views: 50.3ms | ActiveRecord: 6.7ms)
+
+
+Started POST "/suggest_rates/create" for 127.0.0.1 at 2011-04-23 22:36:54 -1000
+  Processing by SuggestRatesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "suggest_rate"=>{"rate1"=>"bad1", "rate2"=>"bad2"}, "suggestid"=>{"1"=>"", "2"=>""}, "commit"=>"Continue"}
+  [1m[35mPK and serial sequence (1.9ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
+LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
+                                             ^
+:           SELECT attr.attname, seq.relname
+          FROM pg_class      seq,
+               pg_attribute  attr,
+               pg_depend     dep,
+               pg_namespace  name,
+               pg_constraint cons
+          WHERE seq.oid           = dep.objid
+            AND seq.relkind       = 'S'
+            AND attr.attrelid     = dep.refobjid
+            AND attr.attnum       = dep.refobjsubid
+            AND attr.attrelid     = cons.conrelid
+            AND attr.attnum       = cons.conkey[1]
+            AND cons.contype      = 'p'
+            AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+  [1m[36mSQL (5.4ms)[0m  [1minsert into rates(suggest_id,rate) values ('1','bad1')[0m
+  [1m[35mPK and serial sequence (1.2ms)[0m   SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
+LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
+                                             ^
+:           SELECT attr.attname, seq.relname
+          FROM pg_class      seq,
+               pg_attribute  attr,
+               pg_depend     dep,
+               pg_namespace  name,
+               pg_constraint cons
+          WHERE seq.oid           = dep.objid
+            AND seq.relkind       = 'S'
+            AND attr.attrelid     = dep.refobjid
+            AND attr.attnum       = dep.refobjsubid
+            AND attr.attrelid     = cons.conrelid
+            AND attr.attnum       = cons.conkey[1]
+            AND cons.contype      = 'p'
+            AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+  [1m[36mPK and serial sequence (1.4ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+[0m
+PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
+LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
+                                             ^
+:           SELECT attr.attname, seq.relname
+          FROM pg_class      seq,
+               pg_attribute  attr,
+               pg_depend     dep,
+               pg_namespace  name,
+               pg_constraint cons
+          WHERE seq.oid           = dep.objid
+            AND seq.relkind       = 'S'
+            AND attr.attrelid     = dep.refobjid
+            AND attr.attnum       = dep.refobjsubid
+            AND attr.attrelid     = cons.conrelid
+            AND attr.attnum       = cons.conkey[1]
+            AND cons.contype      = 'p'
+            AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+  [1m[35mSQL (4.9ms)[0m  insert into rates(suggest_id,rate) values ('2','bad2')
+  [1m[36mPK and serial sequence (1.3ms)[0m  [1m SELECT attr.attname, seq.relname
+ FROM pg_class seq,
+ pg_attribute attr,
+ pg_depend dep,
+ pg_namespace name,
+ pg_constraint cons
+ WHERE seq.oid = dep.objid
+ AND seq.relkind = 'S'
+ AND attr.attrelid = dep.refobjid
+ AND attr.attnum = dep.refobjsubid
+ AND attr.attrelid = cons.conrelid
+ AND attr.attnum = cons.conkey[1]
+ AND cons.contype = 'p'
+ AND dep.refobjid = '"rates(suggest_id,rate)"'::regclass
+[0m
+PGError: ERROR:  relation "rates(suggest_id,rate)" does not exist
+LINE 14:             AND dep.refobjid      = '"rates(suggest_id,rate)...
+                                             ^
+:           SELECT attr.attname, seq.relname
+          FROM pg_class      seq,
+               pg_attribute  attr,
+               pg_depend     dep,
+               pg_namespace  name,
+               pg_constraint cons
+          WHERE seq.oid           = dep.objid
+            AND seq.relkind       = 'S'
+            AND attr.attrelid     = dep.refobjid
+            AND attr.attnum       = dep.refobjsubid
+            AND attr.attrelid     = cons.conrelid
+            AND attr.attnum       = cons.conkey[1]
+            AND cons.contype      = 'p'
+            AND dep.refobjid      = '"rates(suggest_id,rate)"'::regclass
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 22ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:36:54 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (1.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 114ms (Views: 21.1ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/suggest_rates/chart" for 127.0.0.1 at 2011-04-23 22:36:56 -1000
+  Processing by SuggestRatesController#chart as HTML
+  [1m[36mSQL (2.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggest_rate_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mSQL (1.5ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')
+  [1m[36mSQL (1.1ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')[0m
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')
+  [1m[36mSQL (0.6ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')[0m
+  [1m[35mSQL (1.5ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')[0m
+Rendered suggest_rates/chart.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 67ms (Views: 16.7ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:37:00 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (1.5ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 3) LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 71ms (Views: 17.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/pages/destroy" for 127.0.0.1 at 2011-04-23 22:37:02 -1000
+  Processing by PagesController#destroy as HTML
+Redirected to http://0.0.0.0:3000/pages/login
+Completed 302 Found in 2ms
+
+
+Started GET "/pages/login" for 127.0.0.1 at 2011-04-23 22:37:02 -1000
+  Processing by PagesController#login as HTML
+  [1m[36mSQL (0.9ms)[0m  [1mselect get_id('','')[0m
+Rendered pages/login.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 21ms (Views: 18.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 22:37:24 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "user"=>{"username"=>"Catherine", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mSQL (1.7ms)[0m  select get_id('Catherine','password')
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 4ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:37:24 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (1.5ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (1.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered pages/continue.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 72ms (Views: 19.6ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/suggest_rates/chart" for 127.0.0.1 at 2011-04-23 22:37:28 -1000
+  Processing by SuggestRatesController#chart as HTML
+  [1m[35mSQL (2.0ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggest_rate_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mSQL (1.7ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great1')[0m
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral1')
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad1')[0m
+  [1m[35mSQL (1.2ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='great2')
+  [1m[36mSQL (1.2ms)[0m  [1mSELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='neutral2')[0m
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(*) FROM "suggest_rate_view" WHERE (rate='bad2')
+Rendered suggest_rates/chart.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 69ms (Views: 15.7ms | ActiveRecord: 8.4ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:37:30 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (2.0ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (2.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered pages/continue.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 114ms (Views: 22.8ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/survey_suggests/chooseSurvey" for 127.0.0.1 at 2011-04-23 22:37:33 -1000
+  Processing by SurveySuggestsController#chooseSurvey as HTML
+  [1m[35mSurvey Load (1.1ms)[0m  SELECT "surveys".* FROM "surveys"
+  [1m[36mSQL (0.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered survey_suggests/chooseSurvey.html.erb within layouts/application (62.2ms)
+Completed 200 OK in 91ms (Views: 73.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/survey_suggests/index" for 127.0.0.1 at 2011-04-23 22:37:37 -1000
+  Processing by SurveySuggestsController#index as HTML
+  [1m[35mSurveySuggest Load (1.1ms)[0m  SELECT "survey_suggest_view".* FROM "survey_suggest_view" ORDER BY survey
+  [1m[36mSQL (2.1ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"survey_suggest_view"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered survey_suggests/index.html.erb within layouts/application (47.8ms)
+Completed 200 OK in 79ms (Views: 58.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/survey_suggests/whichSuggest" for 127.0.0.1 at 2011-04-23 22:37:41 -1000
+  Processing by SurveySuggestsController#whichSuggest as HTML
+  [1m[35mSuggest Load (0.8ms)[0m  SELECT "suggests".* FROM "suggests"
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"suggests"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered survey_suggests/whichSuggest.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 53ms (Views: 33.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/survey_suggests/whichSurvey" for 127.0.0.1 at 2011-04-23 22:37:47 -1000
+  Processing by SurveySuggestsController#whichSurvey as HTML
+  [1m[35mSurvey Load (1.0ms)[0m  SELECT "surveys".* FROM "surveys"
+  [1m[36mSQL (2.4ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"surveys"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered survey_suggests/whichSurvey.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 96ms (Views: 76.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:37:50 -1000
+  Processing by PagesController#continue as HTML
+  [1m[35mSQL (1.7ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (3.2ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered pages/continue.html.erb within layouts/application (41.9ms)
+Completed 200 OK in 109ms (Views: 51.1ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/users/index" for 127.0.0.1 at 2011-04-23 22:37:52 -1000
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY username[0m
+  [1m[35mSQL (1.3ms)[0m   SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+Rendered users/index.html.erb within layouts/application (37.1ms)
+Completed 200 OK in 70ms (Views: 47.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/pages/destroy" for 127.0.0.1 at 2011-04-23 22:37:56 -1000
+  Processing by PagesController#destroy as HTML
+Redirected to http://0.0.0.0:3000/pages/login
+Completed 302 Found in 4ms
+
+
+Started GET "/pages/login" for 127.0.0.1 at 2011-04-23 22:37:56 -1000
+  Processing by PagesController#login as HTML
+  [1m[36mSQL (0.8ms)[0m  [1mselect get_id('','')[0m
+Rendered pages/login.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 18ms (Views: 15.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/pages/login" for 127.0.0.1 at 2011-04-23 22:38:04 -1000
+  Processing by PagesController#login as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kXQJMoCeD4Mcq1823StchOQR2Klh4JCb5BAz1CrHV3E=", "user"=>{"username"=>"Alan", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[35mSQL (1.1ms)[0m  select get_id('Alan','password')
+Redirected to http://0.0.0.0:3000/pages/continue
+Completed 302 Found in 4ms
+
+
+Started GET "/pages/continue" for 127.0.0.1 at 2011-04-23 22:38:05 -1000
+  Processing by PagesController#continue as HTML
+  [1m[36mSQL (2.7ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 2) LIMIT 1
+  [1m[36mSQL (1.9ms)[0m  [1m SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"users"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+Rendered pages/continue.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 77ms (Views: 19.6ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/pages/destroy" for 127.0.0.1 at 2011-04-23 22:38:08 -1000
+  Processing by PagesController#destroy as HTML
+Redirected to http://0.0.0.0:3000/pages/login
+Completed 302 Found in 2ms
+
+
+Started GET "/pages/login" for 127.0.0.1 at 2011-04-23 22:38:09 -1000
+  Processing by PagesController#login as HTML
+  [1m[35mSQL (0.9ms)[0m  select get_id('','')
+Rendered pages/login.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 21ms (Views: 19.1ms | ActiveRecord: 0.9ms)
