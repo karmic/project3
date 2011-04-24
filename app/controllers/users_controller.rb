@@ -28,8 +28,7 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find(params[:user][:id])
 		if @user.update_attributes(:name => params[:user][:name],
-			:username => params[:user][:username], :division => params[:user][:division],
-			:department => params[:user][:department])
+			:username => params[:user][:username])
 			redirect_to :controller => "users", :action => "index"
 		else
 			render :action => "edit"

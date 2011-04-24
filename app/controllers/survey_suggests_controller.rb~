@@ -1,10 +1,26 @@
 class SurveySuggestsController < ApplicationController
-  def index
+ def index
+		@surveysuggests = SurveySuggest.find(:all, :order => 'survey')
   end
 
 	def chooseSurvey
-		@survey = Survey.find(session[:id]).survey
 		@surveys = Survey.all
 	end
 
+	def editSurvey
+		@survey = Survey.find(params[:id])
+	end
+
+	def whichSurvey
+  	@surveys = Survey.all
+	end
+	
+	def updateSurvey
+		@survey = Survey.find(params[:survey][:id])
+		if @survey.update_attributes(:survey => params[:survey][:survey])
+			redirect_to :controller => "survey_suggests", :action => "index"
+		else
+			render :action => "edit"			
+		end
+	end
 end

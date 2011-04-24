@@ -16,4 +16,3 @@
 		
     <%= f.submit "Submit" %><br /> <br />
 <% end %>
-<%= link_to "Main Menu", :controller => "pages", :action => "continue" %>

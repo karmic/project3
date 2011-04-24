@@ -1,0 +1,7 @@
+<h2> Edit Suggest </h2>
+<%= form_for @suggest, :url => {:action => "updateSuggest"} do |f| %>
+	<%= f.label "Suggest: " %> <%= f.text_field :suggest %> <br />
+	<%= f.hidden_field :id %>
+<br />
+	<%= f.submit "Continue" %>
+<% end %>

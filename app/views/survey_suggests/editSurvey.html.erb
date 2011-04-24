@@ -1,0 +1,7 @@
+<h2> Edit Survey </h2>
+<%= form_for @survey, :url => {:action => "updateSurvey"} do |f| %>
+	<%= f.label "Survey: " %> <%= f.text_field :survey %> <br />
+	<%= f.hidden_field :id %>
+<br />
+	<%= f.submit "Continue" %>
+<% end %>

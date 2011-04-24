@@ -1,7 +1,7 @@
-<h2> Choose Suggestion To Edit </h2>
+<h2> Choose Survey To Edit </h2>
 <%= form_for :id, :url => {:action => "edit"} do |f| %>
-	<%= f.collection_select @suggestion, @usersuggestions, :suggestionid, :suggestion,
-		options = {:prompt => "Choose a suggestion"}, :class => "suggestion" %> <br />
+	<%= f.collection_select @survey, @surveysuggests, :surveyid, :survey,
+		options = {:prompt => "Choose a survey"}, :class => "survey" %> <br />
 	<%= f.submit "Submit" %>
 <% end %>
 

@@ -10,8 +10,8 @@
 		<tr>
 			<td> <%= u.survey %> </td>
 			<td> <%= u.suggest %> </td>
-			<td> <%= u.created_at.asctime  %> </td>
-			<td> <%= u.updated_at.asctime  %> </td>
+			<td> <%= u.created_at.asc %> </td>
+			<td> <%= u.updated_at.asc %> </td>
 		</tr>
 	<% end %>
 </table>

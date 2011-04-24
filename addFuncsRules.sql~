@@ -14,7 +14,7 @@ create or replace function insertUser(_name text)
 	$func$
 	language 'plpgsql';
 
--- create function for adding Survey and returning id
+-- create function for adding Suggestion and returning id
 create or replace function insertSurvey(_survey text)
 	returns integer as
 	$func$
@@ -26,7 +26,7 @@ create or replace function insertSurvey(_survey text)
 	$func$
 	language 'plpgsql';
 
--- create function for adding Suggest and returning id
+-- create function for adding Suggestion and returning id
 create or replace function insertSuggest(survey_id integer,_suggest text)
 	returns integer as
 	$func$

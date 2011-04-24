@@ -48,9 +48,12 @@ create table rates(
 drop table if exists surveys cascade;
 create table surveys(
 	id integer not null primary key default nextval('survey_id_seq'),
-	survey text
+	survey text,
+	created_at timestamp,
+	updated_at timestamp
 );
 -- create view
+
 --drop view if exists user_suggestion_view cascade;
 --create view user_suggestion_view as
 --	select users.id as userid,users.name,users.department,users.division,suggestions.id as 
@@ -59,7 +62,7 @@ create table surveys(
 
 drop view if exists survey_suggest_rate_view cascade;
 create view survey_suggest_view as
-	select surveys.id as surveyid,surveys.survey,suggests.id as 
+	select surveys.id as surveyid,surveys.survey,surveys.created_at,surveys.updated_at,suggests.id as 
 	suggestid,suggests.suggest from surveys join suggests on 
 	surveys.id=suggests.survey_id;
 drop view if exists suggest_rate_view cascade;

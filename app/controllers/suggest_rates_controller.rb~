@@ -6,6 +6,7 @@ class SuggestRatesController < ApplicationController
 	end
 
 	def chart
+		@surveys = Survey.find(params[:id])
 		require 'gchart'
 
 		great = SuggestRate.count(:all,:conditions => ["rate=?", "great1"])
@@ -13,14 +14,14 @@ class SuggestRatesController < ApplicationController
     bad = SuggestRate.count(:all,:conditions => ["rate=?", "bad1"])
 		@result_suggest1 = Gchart.bar(:title => "Suggestion 1",:title_size => 20, :data => [great, neutral, 
 		bad],:bar_width_and_spacing => 75,
-:bar_colors => 'DE8AD8', :labels => ["great: " + great.to_s, "neutral: " + 
+:bar_colors => 'b0c4de', :labels => ["great: " + great.to_s, "neutral: " + 
 		neutral.to_s, "bad: " + bad.to_s])
 
 		great = SuggestRate.count(:all,:conditions => ["rate=?", "great2"])
     neutral = SuggestRate.count(:all,:conditions => ["rate=?", "neutral2"])
     bad = SuggestRate.count(:all,:conditions => ["rate=?", "bad2"])
 		@result_suggest2 = Gchart.bar(:title => "Suggestion 2",:title_size => 20, :data => [great, neutral, 
-		bad],:bar_width_and_spacing => 75,:bar_colors => 'DE8AD8', :labels => ["great: " + great.to_s, "neutral: " + 
+		bad],:bar_width_and_spacing => 75,:bar_colors => 'b0c4de', :labels => ["great: " + great.to_s, "neutral: " + 
 		neutral.to_s, "bad: " + bad.to_s])
 	
 		respond_to do |format|

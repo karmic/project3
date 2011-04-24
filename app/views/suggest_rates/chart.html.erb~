@@ -1,6 +1,6 @@
-
-<h1> Survey Results</h1> <br /> <br />
-
+<% @surveys.each do |ab| %>
+<h1> <%= ab.survey %>Results</h1> <br /> <br />
+<% end %>
 <%= image_tag @result_suggest1, :alt => 'result1_chart' %>
 <%= image_tag @result_suggest2, :alt => 'result2_chart' %><br /> <br /> <br /> <br />
 

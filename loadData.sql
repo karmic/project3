@@ -47,12 +47,13 @@ insert into users_view (name,username,password)
 insert into users_view (name,username,password)
 	values ('John Doe','John','doe');
 
---load suggests
-insert into suggests(id,survey_id,suggest)
-	values ('1','1','Suggestion 1');
-insert into suggests(id,survey_id,suggest)
-	values ('2','1','Suggestion 2');
-
 --load surveys
-insert into surveys (id,survey)
-	values ('1','Survey 1');
+insert into surveys (id,survey,created_at,updated_at)
+	values ('1','Survey 1','2011-04-19 21:24:56 UTC','2011-04-19 21:24:56 UTC');
+
+--load suggests
+insert into suggests(survey_id,id,suggest)
+	values ('1','1','Suggestion 1');
+insert into suggests(survey_id,id,suggest)
+	values ('1','2','Suggestion 2');
+

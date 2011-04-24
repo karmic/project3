@@ -1,0 +1,13 @@
+# == Schema Information
+#
+# Table name: survey_suggest_rate
+#
+#  survey_id  :integer
+#  suggest_id :integer
+#  rate_id    :integer
+#
+
+class SurveySuggestRate < ActiveRecord::Base
+	set_table_name "survey_suggest_rate_view"
+	set_table_name "survey_suggest_rate"
+end
