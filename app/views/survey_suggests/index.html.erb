@@ -18,6 +18,8 @@
 <% if cookies.signed[:user_id] == 1 %>
 	<%= link_to "Edit Survey", :controller => "survey_suggests", :action => "whichSurvey" %>
 	<%= link_to "Edit Suggestion", :controller => "survey_suggests", :action => "whichSuggest" %>
+	<%= link_to "Add New Survey", :controller => "survey_suggests", :action => "newSurvey" %>
+	<%= link_to "Add New Suggestion", :controller => "survey_suggests", :action => "newSuggest" %>
 	<br /> <br />
 	<%= link_to "Main Menu", :controller => "pages", :action => "continue" %>
 <% end %>

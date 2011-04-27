@@ -1,0 +1,7 @@
+<h2> Add New Suggestion </h2>
+<%= form_for :suggest, :url => {:action => "createSuggest" } do |f| %>
+	<%= f.label "Survey:" %> <%= f.text_field :survey_id %> <br />
+	<%= f.label "Suggestion:" %> <%= f.text_field :suggest %> <br />
+<br />
+<%= f.submit "Continue" %>
+<% end %>

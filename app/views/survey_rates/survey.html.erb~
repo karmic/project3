@@ -7,13 +7,12 @@
       <%= f.radio_button :rate1, "bad" %><%= f.label :rate, "Bad" %>
       <%= hidden_field 'surveyid', @surveys.first['id'] %><br /> <br />
 
-		<%= @surveys.second['survey'] %><br />
+		<%= @surveys.third['survey'] %><br />
       <%= f.radio_button :rate2, "great1" %><%= f.label :rate, "Great" %>
       <%= f.radio_button :rate2, "neutral1" %><%= f.label :rate, "Neutral" %>
       <%= f.radio_button :rate2, "bad1" %><%= f.label :rate, "Bad" %>
-      <%= hidden_field 'surveyid', @surveys.second['id'] %><br /> <br />
+      <%= hidden_field 'surveyid', @surveys.third['id'] %><br /> <br />
     
     <%= f.submit "Submit" %><br /> <br />
 <% end %>
-<%= link_to "View Rated Suggestion Results", :controller => "survey_rates", :action => "chart" %><br /> <br />
 <%= link_to "Main Menu", :controller => "pages", :action => "continue" %>

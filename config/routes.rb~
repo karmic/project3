@@ -1,11 +1,15 @@
 Project3::Application.routes.draw do
 
   get "survey_suggests/index"
+	get "survey_suggests/newSurvey"
+	match "survey_suggests/createSurvey" => "survey_suggests#createSurvey"
 	match "survey_suggests/chooseSurvey" => "survey_suggests#chooseSurvey"
 	match "survey_suggests/whichSurvey" => "survey_suggests#whichSurvey"
 	match "survey_suggests/editSurvey" => "survey_suggests#editSurvey"
+	match "survey_suggests/updateSurvey" => "survey_suggests#updateSurvey"
 	match "survey_suggests/whichSuggest" => "survey_suggests#whichSuggest"
 	match "survey_suggests/editSuggest" => "survey_suggests#editSuggest"
+	match "survey_suggests/updateSuggest" => "survey_suggests#updateSuggest"
 
   match "suggest_rates/index" => "suggest_rates#index"
 	match "suggest_rates/suggest" => "suggest_rates#suggest"

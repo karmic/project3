@@ -1,0 +1,6 @@
+<h2> Add New Survey </h2>
+<%= form_for :survey, :url => {:action => "createSurvey" } do |f| %>
+	<%= f.label "Survey:" %> <%= f.text_field :survey %> <br />
+<br />
+<%= f.submit "Continue" %>
+<% end %>
